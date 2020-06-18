@@ -1,7 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Recipes = sequelize.define('Recipes', {
-    name: DataTypes.TEXT,
+    name: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     review: DataTypes.TEXT,
     description: DataTypes.TEXT,
     url: DataTypes.TEXT,
