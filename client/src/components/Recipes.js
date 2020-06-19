@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 export default class Recipes extends Component {
   constructor() {
@@ -24,9 +25,10 @@ export default class Recipes extends Component {
       <div>
         { this.state.recipes.map(recipe => {
           return (
-            <div>
+            <div key={recipe.id} >
               <h1>{ recipe.name }</h1>
-              <pre>{ JSON.stringify(recipe, null, '\n') }</pre>
+              <p>{ recipe.description }</p>
+              <Link to={`/recipes/${recipe.id}`}>Show Details</Link>
             </div>
           )
         })}
