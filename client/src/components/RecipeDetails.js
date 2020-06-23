@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import LikesButton from './LikesButton';
 
 export default class RecipeDetails extends Component {
   constructor(props) {
@@ -22,6 +23,15 @@ export default class RecipeDetails extends Component {
       })
   }
 
+  handleLike = (newLikes) => {
+    this.setState({
+      details: {
+        ...this.state.details,
+        likes: newLikes,
+      }
+    })
+  }
+
   render() {
     const { loading, details } = this.state;
 
@@ -32,6 +42,10 @@ export default class RecipeDetails extends Component {
     return (
       <div className="RecipeDetails">
         <h1>{ details.name }</h1>
+        <div>
+          <p>{details.description}</p>
+        </div>
+        <LikesButton id={details.id} likes={details.likes} onLike={this.handleLike} />
       </div>
     )
   }
