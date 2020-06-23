@@ -23,15 +23,6 @@ export default class RecipeDetails extends Component {
       })
   }
 
-  handleLike = (newLikes) => {
-    this.setState({
-      details: {
-        ...this.state.details,
-        likes: newLikes,
-      }
-    })
-  }
-
   render() {
     const { loading, details } = this.state;
 
@@ -45,7 +36,7 @@ export default class RecipeDetails extends Component {
         <div>
           <p>{details.description}</p>
         </div>
-        <LikesButton id={details.id} likes={details.likes} onLike={this.handleLike} />
+        <LikesButton id={details.id} />
       </div>
     )
   }

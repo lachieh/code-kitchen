@@ -44,7 +44,7 @@ export default class Recipes extends Component {
               <h1>{ recipe.name }</h1>
               <p>{ recipe.description }</p>
               <Link to={`/recipes/${recipe.id}`}>Show Details</Link>
-              <LikesButton id={recipe.id} likes={recipe.likes} onLike={(newLikes) => { this.handleLike(recipe.id, newLikes)}} />
+              <LikesButton id={recipe.id} />
             </div>
           )
         })}
